@@ -460,24 +460,20 @@ func_install_source(){
     #get Newfies-Dialer
     echo "Install Newfies-Dialer..."
     cd /usr/src/
-    #rm -rf newfies-dialer
-    rm -rf Dialer
+    rm -rf newfies-dialer
     mkdir /var/log/newfies
 
     ##git clone -b $BRANCH git://github.com/newfies-dialer/newfies-dialer.git
-    git clone -b $BRANCH https://github.com/gudge25/Dialer.git
-    ##cd newfies-dialer
-    cd Dialer
+    git clone -b $BRANCH https://github.com/gudge25/newfies-dialer.git
+    cd newfies-dialer
     #Install branch develop / callcenter
     if echo $BRANCH | grep -i "^develop" > /dev/null ; then
         git checkout -b develop --track origin/develop
     fi
 
     #Copy files
-    ##cp -r /usr/src/newfies-dialer/newfies $INSTALL_DIR
-    ##cp -r /usr/src/newfies-dialer/lua $LUA_DIR
-    cp -r /usr/src/Dialer/newfies $INSTALL_DIR
-    cp -r /usr/src/Dialer/lua $LUA_DIR
+    cp -r /usr/src/newfies-dialer/newfies $INSTALL_DIR
+    cp -r /usr/src/newfies-dialer/lua $LUA_DIR
     cd $LUA_DIR/libs/
     rm acapela.lua
     wget --no-check-certificate https://raw.github.com/newfies-dialer/lua-acapela/master/acapela.lua
