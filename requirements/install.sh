@@ -22,17 +22,17 @@ done
 echo "Install Django requirements..."
 for line in $(cat requirements/django.txt | grep -v \#)
 do
-    pip install $line #--use-mirrors --allow-all-external --allow-unverified django-admin-tools
+    PYTHONWARNINGS=ignore:DEPRECATION pip install $line #--use-mirrors --allow-all-external --allow-unverified django-admin-tools
 done
 
 echo "Install Dev requirements..."
 for line in $(cat requirements/dev.txt | grep -v \#)
 do
-    pip install $line
+    PYTHONWARNINGS=ignore:DEPRECATION pip install $line
 done
 
 echo "Install test requirements..."
 for line in $(cat requirements/test.txt | grep -v \#)
 do
-    pip install $line #--use-mirrors
+    PYTHONWARNINGS=ignore:DEPRECATION pip install $line #--use-mirrors
 done
