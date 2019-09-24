@@ -22,7 +22,8 @@ done
 echo "Install Django requirements..."
 for line in $(cat requirements/django.txt | grep -v \#)
 do
-    pip install $line #--use-mirrors --allow-all-external --allow-unverified django-admin-tools
+    #pip install $line #--use-mirrors --allow-all-external --allow-unverified django-admin-tools
+    pip install $line -q Django==$DJANGO
 done
 
 echo "Install Dev requirements..."
