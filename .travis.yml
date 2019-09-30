@@ -18,6 +18,8 @@ before_script:
   # - "pep8 --exclude=migrations --ignore=E501,E225 newfies"
   # - pyflakes -x W newfies
 script:
+  - echo "yoyo"
+  - grep  -r  uuid_generate_random  /home/travis/virtualenv/python2.7.15/lib/python2.7/site-packages/
   - py.test newfies/appointment/tests.py --ds=newfies.newfies_dialer.settings_test
   # - python newfies/manage.py test -s -x --with-xtraceback --with-color
   #- python newfies/manage.py test --settings=settings_travis -s --with-progressive --ignore-files=api_tests.py
